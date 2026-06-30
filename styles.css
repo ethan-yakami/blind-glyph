@@ -1,0 +1,257 @@
+:root {
+  color-scheme: light;
+  font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+  background: #ffffff;
+  color: #111111;
+  --board-size: min(360px, 88vw);
+  --tool-width: min(604px, 92vw);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #ffffff;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.page {
+  display: flex;
+  justify-content: center;
+  padding: 8px 18px 18px;
+}
+
+.problem {
+  width: min(980px, 100%);
+}
+
+h1 {
+  margin: 0;
+  font-size: 34px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.tagline {
+  margin: 6px 0 8px;
+  color: #444444;
+  font-size: 17px;
+}
+
+.rules {
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: #ffffff;
+  border: 1px solid #e2e2e2;
+}
+
+.rules h2 {
+  margin: 0 0 6px;
+  font-size: 18px;
+}
+
+.rules ul {
+  margin: 0;
+  padding-left: 24px;
+  line-height: 1.25;
+  color: #222222;
+  font-size: 15px;
+}
+
+.rules li {
+  margin: 3px 0;
+}
+
+.level-note {
+  margin: 8px 0 8px;
+  padding: 9px 12px;
+  border: 1px solid #f0d990;
+  border-radius: 8px;
+  background: #fff7d6;
+  color: #5d4a12;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.level-note[hidden] {
+  display: none;
+}
+
+.level-buttons {
+  display: grid;
+  grid-template-columns: repeat(5, 46px);
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.level-buttons button {
+  width: 46px;
+  min-height: 38px;
+  border: 3px solid #dddddd;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #111111;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.level-buttons button.active {
+  background: #3d7bf3;
+  border-color: #3d7bf3;
+  color: #ffffff;
+}
+
+.level-buttons button.solved {
+  border-color: #5dbb7d;
+}
+
+.board-stage {
+  display: flex;
+  justify-content: center;
+}
+
+.board-frame {
+  position: relative;
+  width: var(--board-size);
+  aspect-ratio: 1;
+}
+
+#board {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  border: 3px solid #333333;
+  background: #ffffff;
+  touch-action: none;
+}
+
+.readout {
+  width: var(--tool-width);
+  margin: 8px auto 0;
+  text-align: center;
+}
+
+.readout h2 {
+  margin: 0 0 6px;
+  color: #666666;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.readout p {
+  margin: 4px 0;
+  color: #333333;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.controls {
+  width: var(--tool-width);
+  margin: 8px auto 0;
+  display: grid;
+  grid-template-columns: 1.5fr repeat(3, 1fr);
+  gap: 8px;
+}
+
+.controls input[type="text"] {
+  min-height: 38px;
+  border: 1px solid #888888;
+  border-radius: 4px;
+  padding: 0 18px;
+  color: #111111;
+  background: #ffffff;
+  font-size: 15px;
+}
+
+.controls button {
+  min-height: 38px;
+  border: 0;
+  border-radius: 6px;
+  background: #747c86;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.controls button.primary {
+  background: #3d7bf3;
+}
+
+.controls button:nth-of-type(4) {
+  background: #f5c542;
+  color: #111111;
+}
+
+.controls button:nth-of-type(5),
+.controls button:nth-of-type(6) {
+  background: #666f79;
+}
+
+.check-control {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 34px;
+  border: 2px dashed #aaaaaa;
+  border-radius: 8px;
+  color: #333333;
+  background: #f5f5f5;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.check-control input {
+  width: 20px;
+  height: 20px;
+}
+
+.radar-controls {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  align-items: center;
+  min-height: 34px;
+  font-size: 14px;
+}
+
+.radar-controls[hidden] {
+  display: none;
+}
+
+.radar-controls label {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px;
+  align-items: center;
+}
+
+.message {
+  width: var(--tool-width);
+  min-height: 34px;
+  margin: 6px auto 0;
+  color: #d64545;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+@media (max-width: 760px) {
+  .controls {
+    grid-template-columns: 1fr;
+  }
+
+}
